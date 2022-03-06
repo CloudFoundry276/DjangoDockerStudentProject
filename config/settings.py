@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'studentdb',
         'USER': 'blueocean',
         'PASSWORD': 'BlueOcean17@#',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }

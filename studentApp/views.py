@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from pyexpat import model
+from django.views.generic import ListView
+from .models import Student
+
 
 # Create your views here.
+class StudentListView(ListView):
+    model = Student

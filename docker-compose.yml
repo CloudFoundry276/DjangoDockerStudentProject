@@ -1,26 +1,26 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  web:
-    container_name: web
-    build: .
-    environment:
-      - POSTGRES_NAME=studentdb
-      - POSTGRES_USER=blueocean
-      - POSTGRES_PASSWORD=BlueOcean17@#
-    command: "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - .:/code
-    ports:
-      - "10555:8000"
-    depends_on:
-      - db
   db:
-    container_name: db
+    container_name: db_studentdb
     image: postgres
     environment:
       - POSTGRES_NAME=studentdb
       - POSTGRES_USER=blueocean
       - POSTGRES_PASSWORD=BlueOcean17@#
     volumes:
-      - .data/db:/var/lib/postgresql/data
+      - ./data/db:/var/lib/postgresql/data
+  web:
+    container_name: web_dynamic
+    build: .
+    environment:
+      - POSTGRES_NAME=studentdb
+      - POSTGRES_USER=blueocean
+      - POSTGRES_PASSWORD=BlueOcean17@#
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "10556:8000"
+    depends_on:
+      - db  

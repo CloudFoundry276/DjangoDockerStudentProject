@@ -5,4 +5,5 @@ from .models import Student
 
 # Create your views here.
 class StudentListView(ListView):
+    print("Student List View")
     model = Student

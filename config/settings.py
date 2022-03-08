@@ -82,7 +82,7 @@ DATABASES = {
         'USER': 'blueocean',
         'PASSWORD': 'BlueOcean17@#',
         'HOST': 'db',
-        'PORT': '5432',
+        'PORT': 5432,
     }
 }
 
